@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA 308A JS WEB PG</title>
+<script>
+    var pages ={
+        'home' : `Hello! Welcome to my JS Webpage!<br/><br/><img src='images/flower1.jpg'
+        style='width:500px;' />`,
+        'aboutus':  `About my page<br/><br/><img src='images/flower2.jpg'
+        style='width:500px;' />`,
+        'services': `Everything we provide<br/><br/><img src='images/flower3.jpg'
+        style='width:500px;' />`,
+        'contact': `Here's our contact information<br/><br/><img src='images/flower4.jpg'
+        style='width:500px;' />`,
+};
+
+function getPageContent(page) {
+    var contentToReturn;
+   
+    switch(page) {
+        case 'home': 
+        contentToReturn = pages.home;
+        break;
+        case 'aboutus': 
+        contentToReturn = pages.aboutus;
+        break;
+        case 'services':
+            contentToReturn = pages.services
+            break;
+            case 'contact':
+            contentToReturn = pages.contact
+            break;
+            default:
+            contentToReturn = pages.home
+            break; 
+            
+            }
+           document.getElementById('content').innerHTML = 
+           contentToReturn;
+           }
+           
+
+
+
+
+
+</script>
+</head>
+<body onload="getPageContent('home')">
+
+    <div style="width:20%; float: left; background: #eee; height: 100%;">
+    <ul>
+        <li style="line-height: 50px;">
+            <a href="#" onclick="getPageContent('home')">Home
+            </a>
+        </li>
+        <li style="line-height: 50px;">
+            <a href="#" onclick="getPageContent('aboutus')">About Us
+            </a>
+        </li><li style="line-height: 50px;">
+            <a href="#" onclick="getPageContent('services')">Services
+            </a>
+        </li><li style="line-height: 50px;">
+            <a href="#" onclick="getPageContent('contact')">Contact
+            </a>
+        </li>
+    </ul>
+
+    </div>
+    <div style="width: 80%; float: right; background: #999; color: #fff; height:100%; font-size: 50px;"><p style="margin-left: 50px;" id="content"><p></div>
+
+    
+</body>
+</html>
