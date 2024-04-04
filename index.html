@@ -7,18 +7,23 @@
     <title>SBA 308A JS WEB PG</title>
     <style>
         .formarea {
-            background-color: rgb(174, 22, 22);
-            margin-top: 149%;
+            background-color: rgb(234, 185, 214);
+            margin-top: 4%;
             text-align: center;
             height:50px;
+            float:right;
             
+        }
+
+        #favFlower1 {
+display: block;
         }
     </style>
 </head>
 
 <body onload="getPageContent('home')">
 
-    <div style="width:20%; float: left; background: #eee; height: 100%;">
+    <div style="width:30%; float: left; background: #eee; height: 100%;">
         <ul>
             <li style="line-height: 50px;">
                 <a href="#" onclick="getPageContent('home')">Home
@@ -39,14 +44,22 @@
         </ul>
 
     </div>
-    <div style="width: 80%; float: right; background: #999; color: #fff; height:100%; font-size: 50px;">
+    <div style="width: 68%; float: right; background: #999; color: #fff; height:100%; font-size: 50px;">
         <p style="margin-left: 50px;" id="content">
         <p>
     </div>
     <br>
     <br>
 
-    <div>
+    
+
+<h3>Here's a flower of the day!</h3>
+<h4>Fetch the mini flower gallery here:</h4>
+<!-- <img id="gallery" src="https://th.bing.com/th/id/OIP.i5FkDMX1XhnJ5Eqs6eypeAHaEK?rs=1&pid=ImgDetMain" height="250" style="cursor: pointer" /> -->
+ <img id="clickableImage" src="https://th.bing.com/th/id/OIP.i5FkDMX1XhnJ5Eqs6eypeAHaEK?rs=1&pid=ImgDetMain" alt="Click Me" width="30%" height="300px">
+<br>
+<br>    
+<div id="favFlower1">
         <h3>What's your favorite flower?</h3>
         <ul> Answer  Below
             <li>Example: Roses</li>
@@ -54,6 +67,9 @@
         <input>
         <button>Add my flower</button>
     </div>
+    <br>
+    <br>
+    <br>
 
     <div class="formarea">
     <form class="form">
@@ -80,15 +96,6 @@
 <br>
 <br>
 
-
-<h3>Here's a flower of the day!</h3>
-<h4>Fetch the mini flower gallery here:</h4>
-<!-- <img id="gallery" src="https://th.bing.com/th/id/OIP.i5FkDMX1XhnJ5Eqs6eypeAHaEK?rs=1&pid=ImgDetMain" height="250" style="cursor: pointer" /> -->
- 
-
-
-
-<img id="clickableImage" src="https://th.bing.com/th/id/OIP.i5FkDMX1XhnJ5Eqs6eypeAHaEK?rs=1&pid=ImgDetMain" alt="Click Me">
 </body>
 <script src="index.js">
     

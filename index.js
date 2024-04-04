@@ -50,13 +50,13 @@ console.log(input.value);
 
     var pages = {
         'home': `Welcome to the <b>Flower Pot!<b>!<br/><br/><img src='images/flower1.jpg'
-    style='width:500px;' />`,
+    style='width:350px;' />`,
         'aboutus': `About my page<br/><br/><img src='images/flower2.jpg'
-    style='width:500px;' />`,
+    style='width:350px;' />`,
         'services': `Everything we provide<br/><br/><img src='images/flower3.jpg'
-    style='width:500px;' />`,
+    style='width:350px;' />`,
         'contact': `Here's our contact information<br/><br/><img src='images/flower4.jpg'
-    style='width:500px;' />`,
+    style='width:350px;' />`,
     };
     
     function getPageContent(page) {
@@ -148,11 +148,9 @@ async function allGood(){
     console.log("You are finished!")   
 }
 
-document
-.getElementById("myBtn")
-.addEventListener("click", testRequest);
+document.getElementById("myBtn").addEventListener("click", testRequest);
 
-async function testRequest(myInput) {
+async function testRequest() {
     let inputVal = document.getElementById("myInput").value;
     let requestBody = {data: inputVal};
     console.log(requestBody);
@@ -172,12 +170,19 @@ alertResponse(response);
 
 async function alertResponse(response) {
     if (response.ok) {
-    const textData = await response.text();
-        alert(textData);
+        const responseData =await response.json();
+        if (responseData.id === 201) {
+        alert("Resource created successfuly!")
     } else {
+         const textData = await response.text();
+    alert(textData);
+    }
+}
+    else {
         alert("The request returned a status other than 200 OK: " + response.status);
     }
 }
+
 
     // const moreFlowers = document.getElementById('moreFlowers');
     // moreFlowers.addEventListener("click", getNewFlowers);
