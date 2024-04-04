@@ -203,7 +203,7 @@ async function alertResponse(response) {
     document.getElementById('clickableImage').addEventListener('click', function() {
         fetch('https://api.pexels.com/v1/search?query=flowers&per_page=5', {
             headers: {
-                Authorization: 'Te2AxJtvuJZTZLxU21ZBZiZ0jEFAaZiQ0QzjK2YzqbF4Ui2XghQzwO7B'
+                Authorization: ''
             }
         })
         .then(response => response.json())
