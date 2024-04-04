@@ -198,23 +198,36 @@ async function alertResponse(response) {
 
     // Modified Flower Code
 
-    const flower = document.getElementById('flower');
-flower.addEventListener("click", getNewFlower);
-async function getNewFlower() {
-    flower.style.cursor = 'wait';
-    const response = await fetch("https://api.pexels.com/v1/search?query=flower&per_page=1", {
-        headers: {
-            Authorization: "Bearer Te2AxJtvuJZTZLxU21ZBZiZ0jEFAaZiQ0QzjK2YzqbF4Ui2XghQzwO7B"
-        }
+    let currentIndex = 0; // Initialize the current image index
+
+    document.getElementById('clickableImage').addEventListener('click', function() {
+        fetch('https://api.pexels.com/v1/search?query=flowers&per_page=5', {
+            headers: {
+                Authorization: 'Te2AxJtvuJZTZLxU21ZBZiZ0jEFAaZiQ0QzjK2YzqbF4Ui2XghQzwO7B'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Remove the first image if it exists
+            const clickableImage = document.getElementById('clickableImage');
+            if (clickableImage) {
+                clickableImage.remove();
+            }
+    
+            // Get the next image URL based on the current index
+            const imageUrl = data.photos[currentIndex].src.medium;
+    
+            // Create and append the next image
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            document.body.appendChild(image);
+    
+            // Increment the current index for the next click
+            currentIndex = (currentIndex + 1) % data.photos.length;
+        })
+        .catch(error => console.error('Error fetching images:', error));
     });
-    const jsonData = await response.json();
-    const url = jsonData.photos[0].src.original;
-
-    flower.src = url;
-    flower.style.cursor = 'pointer';
-}
-getNewFlower();
-
+    
 
     
  
